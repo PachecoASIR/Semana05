@@ -13,6 +13,6 @@ public class Ejercicio1 {
         if(n1 % 2 == 0) {
                 System.out.println("El número es par.");
             }
-            else System.out.println("El número es impar.");
+            else System.out.println("El número es impar2.");
         }
     }
