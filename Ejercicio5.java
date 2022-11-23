@@ -1,57 +1,53 @@
 import java.util.Scanner;
 
 public class Ejercicio5 {
-    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        int num1 = getInt();
-        int num2 = getInt();
-        char operation = getOperation();
-        int result = calc(num1,num2,operation);
-        System.out.println("El resultado de la operación: "+result);
-    }
-    public static int getInt(){
-        System.out.println("Introduzca un número:");
-        int num;
-        if(scanner.hasNextInt()){
-            num = scanner.nextInt();
-        } else {
-            System.out.println("Te has equivocado al introducir el número. Inténtalo de nuevo.");
-            scanner.next();//recursividad
-            num = getInt();
+
+        String p1="Suma";
+        String p2="Resta";
+        String p3="Multiplicacion";
+        String p4="Division";
+        String p;
+        double n1;
+        double n2;
+        double resultado;
+
+        Scanner leer_entrada = new Scanner(System.in);
+        System.out.println("Intruduce el nombre de la operación que desea realizar: Suma - Resta - Multiplicacion - Division");
+        System.out.println("A continuación se le pedirán los valores para realizar el cálculo: ");
+        p=leer_entrada.nextLine();
+        if(p.equals(p1)) {
+            System.out.println("Introduce un valor: ");
+            n1=leer_entrada.nextDouble();
+            System.out.println("Introduce un valor para sumar al anterior: ");
+            n2=leer_entrada.nextDouble();
+            resultado= n1 + n2;
+            System.out.println("El resultado de la suma es: " + resultado);
+            }
+        else if (p.equals(p2)) {
+            System.out.println("Introduce un valor: ");
+            n1=leer_entrada.nextDouble();
+            System.out.println("Introduce un valor para restar al anterior: ");
+            n2=leer_entrada.nextDouble();
+            resultado= n1 - n2;
+            System.out.println("El resultado de la resta es: " + resultado);
+            }
+        else if (p.equals(p3)) {
+            System.out.println("Introduce un valor: ");
+            n1=leer_entrada.nextDouble();
+            System.out.println("Introduce un valor para multiplicar por el anterior: ");
+            n2=leer_entrada.nextDouble();
+            resultado= n1 * n2;
+            System.out.println("El resultado de la multiplicación es: " + resultado);
+            }
+        else if (p.equals(p4)) {
+            System.out.println("Introduce un valor para el numerador: ");
+            n1=leer_entrada.nextDouble();
+            System.out.println("Introduce el denominador: ");
+            n2=leer_entrada.nextDouble();
+            resultado= n1 / n2;
+            System.out.println("El resultado de la división es: " + resultado);
+            }
+        else System.out.println("La operación no se corresponde con ninguna de las que se muestran por pantalla.");
         }
-        return num;
     }
-    public static char getOperation(){
-        System.out.println("Introduzca la operación:");
-        char operation;
-        if(scanner.hasNext()){
-            operation = scanner.next().charAt(0);
-        } else {
-            System.out.println("Ha cometido un error al entrar en la operación. Inténtalo de nuevo.");
-            scanner.next();//recursividad
-            operation = getOperation();
-        }
-        return operation;
-    }
-    public static int calc(int num1, int num2, char operation){
-        int result;
-        switch (operation){
-            case '+':
-                result = num1+num2;
-                break;
-            case '-':
-                result = num1-num2;
-                break;
-            case '*':
-                result = num1*num2;
-                break;
-            case '/':
-                result = num1/num2;
-                break;
-            default:
-                System.out.println("La operación no se reconoce. Repite la entrada.");
-                result = calc(num1, num2, getOperation());//recursividad
-        }
-        return result;
-    }
-}
