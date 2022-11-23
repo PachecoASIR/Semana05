@@ -19,6 +19,6 @@ public class Ejercicio1 {
         System.out.println("Los números son múltiplos.");
         else {
             System.out.println("Los números no son múltiplos.");
-        }
+            }
         }
     }
