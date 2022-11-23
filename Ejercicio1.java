@@ -10,9 +10,15 @@ public class Ejercicio1 {
         n1=leer_entrada.nextInt();
         System.out.println("Introduce un valor para comprobar si es múltiplo del anterior: ");
         n2=leer_entrada.nextInt();
-        if(n1 % 2 == 0) {
-                System.out.println("El número es par.");
+        boolean multiplo;
+        multiplo=false;
+        if(n1 % n2 == 0) {
+            multiplo=true;
             }
-            else System.out.println("El número es impar2.");
+        if (multiplo == true)
+        System.out.println("Los números son múltiplos.");
+        else {
+            System.out.println("Los números no son múltiplos.");
+        }
         }
     }
